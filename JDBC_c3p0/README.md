@@ -3,11 +3,11 @@
 javac -cp "lib/*" *.java
 ```
 # Run
-## Win
+Win
 ```
 java -cp ".;lib/*" ClientTest
 ```
-## Mac OS
+Mac OS
 ```
 java -cp .:lib/* ClientTest
 ```
