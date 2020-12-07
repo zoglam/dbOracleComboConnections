@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <windows.h>
-#include <sqltypes.h>
 #include <sql.h>
 #include <sqlext.h>
 
@@ -42,9 +41,7 @@ int main()
                     retcode = SQLDriverConnect(
                         hdbc,
                         NULL,
-                        (SQLTCHAR *)"DRIVER={Microsoft ODBC for Oracle};SERVER=(localhost:1521/xe);UID=SYSTEM;PWD=123",
-                        //(SQLTCHAR *)"Driver={Microsoft ODBC for Oracle};Server=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SID=xe)));Uid=SYSTEM;Pwd=123;",
-                        //(SQLTCHAR *)"Driver={SQL Server};DSN='';Server=MSSERVER;Database=pubs;",
+                        (SQLTCHAR *)"DRIVER={Oracle in OraDB18Home1};SERVER=localhost:1521/xe;UID=SYSTEM;PWD=123",
                         SQL_NTS,
                         (SQLTCHAR *)szOutConn,
                         sizeof(szOutConn),

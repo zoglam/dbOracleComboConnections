@@ -3,7 +3,7 @@
 #include <sql.h>
 #include <sqlext.h>
 
-#define CONNECTIONS_COUNT 3
+#define CONNECTIONS_COUNT 20
 
 int main()
 {
@@ -35,9 +35,7 @@ int main()
                     retcode = SQLDriverConnect(
                         hdbc,
                         NULL,
-                        (SQLTCHAR *)"DRIVER={Microsoft ODBC for Oracle};SERVER=(localhost:1521/xe);UID=SYSTEM;PWD=123",
-                        //(SQLTCHAR *)"Driver={Microsoft ODBC for Oracle};Server=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SID=xe)));Uid=SYSTEM;Pwd=123;",
-                        //(SQLTCHAR *)"Driver={SQL Server};DSN='';Server=MSSERVER;Database=pubs;",
+                        (SQLCHAR *)"DRIVER={Oracle in OraDB18Home1};SERVER=localhost:1521/xe;UID=SYSTEM;PWD=123",
                         SQL_NTS,
                         NULL,
                         0,
