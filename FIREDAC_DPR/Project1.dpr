@@ -28,7 +28,7 @@ begin
     begin
       Clear;
       Add('DriverID=SQLite');
-      Add('Database=C:\Users\zoglam\Desktop\TEST\delphi\db.db');
+      Add('Database=../../db.db');
       //Add('Pooled=True');
     end;
     fQry.Connection := fConn;
