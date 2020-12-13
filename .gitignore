@@ -4,6 +4,7 @@
 *.dproj.*
 *.identcache
 *.res
+*.dpr.*
 
 .vscode
 
