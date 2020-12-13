@@ -6,6 +6,8 @@ import java.sql.Statement;
 
 public class ClientTest {
 
+    final public static int COUNT = 20;
+
     public static void execute(Statement st){
 
     }
@@ -14,7 +16,7 @@ public class ClientTest {
         long sum = 0;
 
 
-        for(int i = 0; i < 20; i++){
+        for(int i = 0; i < COUNT; i++){
             final long startTime = System.nanoTime();
             try (Connection connection = DBUtil.getDataSource().getConnection();
                     Statement st = connection.createStatement();) {
@@ -41,11 +43,11 @@ public class ClientTest {
             }
             final long endTime = System.nanoTime();
             sum += endTime - startTime;
-            System.out.println("Total execution time: " + ((endTime - startTime)/Math.pow(10,-6)));
+            System.out.println("Total execution time: " + ((endTime - startTime)*Math.pow(10,-9)));
         }
-        System.out.println("Avg: "+(sum/20));
+        System.out.println("Avg: "+(sum/COUNT)*Math.pow(10,-9));
         sum = 0;
-        for(int i = 0; i < 20; i++){
+        for(int i = 0; i < COUNT; i++){
             final long startTime = System.nanoTime();
             try (Connection connection = DBUtilWithout.getDataSource().getConnection();
                     Statement st = connection.createStatement();) {
@@ -72,8 +74,8 @@ public class ClientTest {
             }
             final long endTime = System.nanoTime();
             sum += endTime - startTime;
-            System.out.println("Total execution time: " + ((endTime - startTime)/Math.pow(10,-6)));
+            System.out.println("Total execution time: " + ((endTime - startTime)*Math.pow(10,-9)));
         }
-        System.out.println("Avg: "+(sum/20));
+        System.out.println("Avg: "+(sum/COUNT)*Math.pow(10,-9));
     }
 }

@@ -21,10 +21,12 @@ var
     today : TDateTime;
     sum: Double;
     i: Integer;
+    count: Integer;
 
 begin
+    count := 1;
     sum := 0;
-    for i := 0 to 20 do begin
+    for i := 0 to count-1 do begin
         fConn := TFDConnection.Create(Nil);
         fDrv := TFDPhysSQLiteDriverLink.Create(Nil);
         fQry := TFDQuery.Create(Nil);
@@ -51,9 +53,9 @@ begin
           fDrv.Free;
           fQry.Free;
         end;
-        WriteLn('Conn ',i+1,' Time:',(Now - today), ' nanoseconds');
+        WriteLn('Conn ',i+1,' Time:',(Now - today), ' seconds');
         sum := sum + Now - today;
     end;
-    WriteLn('Avg: ', sum/20);
+    WriteLn('Avg: ', sum/(count));
     ReadLn;
 end.
